@@ -1,0 +1,138 @@
+---
+title: Getting Started with Wamba
+description: Set up your account quickly and launch into your first gaming session or competition on the Gamers Oasis platform.
+---
+
+## Overview
+
+Get started with Wamba's Gamers Oasis platform in minutes. Follow these steps to create your account, verify your profile, explore the dashboard, and join your first esports match. You'll be competing for real prizes in no time.
+
+## Prerequisites
+
+<Callout kind="info">
+
+Before beginning, ensure you have:
+- A valid email address
+- A desktop or mobile browser (Chrome, Firefox, Safari recommended)
+- Age verification ready (must be 18+ for real-money competitions)
+
+</Callout>
+
+## Create Your Account
+
+Follow these steps to sign up on the Gamers Oasis platform.
+
+<Steps>
+  <Step title="Visit the Signup Page" icon="user-plus">
+    Navigate to `https://app.wamba.com/signup`.
+  </Step>
+  <Step title="Enter Your Details" icon="edit-3">
+    Provide your email, username, and password. Choose a strong password with at least 12 characters.
+  </Step>
+  <Step title="Agree and Submit" icon="check-circle">
+    Accept the terms of service and privacy policy, then click **Create Account**.
+  </Step>
+</Steps>
+
+You'll receive a confirmation email immediately.
+
+## Verify Your Profile
+
+Verification unlocks full access to matches and withdrawals.
+
+<Steps>
+  <Step title="Check Your Email" icon="mail">
+    Open the verification email from Wamba and click the link.
+  </Step>
+  <Step title="Upload ID" icon="upload">
+    Return to `https://dashboard.wamba.com/profile` and upload a government-issued ID.
+  </Step>
+  <Step title="Complete KYC" icon="shield-check">
+    Answer security questions. Approval typically takes 5-10 minutes.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use a clear photo of your ID. Blurry images delay approval.
+</Callout>
+
+## Explore the Dashboard
+
+The dashboard at `https://dashboard.wamba.com` is your central hub.
+
+<Columns cols={3}>
+  <Card title="Live Matches" icon="activity" href="https://dashboard.wamba.com/matches">
+    Browse ongoing and upcoming competitions.
+  </Card>
+  <Card title="Your Profile" icon="user" href="https://dashboard.wamba.com/profile">
+    Manage settings, stats, and verification status.
+  </Card>
+  <Card title="Wallet" icon="dollar-sign" href="https://dashboard.wamba.com/wallet">
+    Deposit funds and track winnings.
+  </Card>
+</Columns>
+
+## Join Your First Match
+
+Once verified, join a match via the web app or API.
+
+<Tabs>
+  <Tab title="Web Dashboard" icon="globe">
+    <Steps>
+      <Step title="Select Match">
+        Go to Matches tab and pick a game like "CS:GO Duel".
+      </Step>
+      <Step title="Enter & Start">
+        Pay entry fee from wallet and click **Join**. Compete in real-time!
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="JavaScript SDK" icon="code">
+    Integrate programmatically for apps or bots.
+
+    <CodeGroup tabs="JavaScript,cURL">
+      ```javascript
+      import { WambaSDK } from '@wamba/sdk';
+
+      const sdk = new WambaSDK({
+        apiKey: 'YOUR_API_KEY',
+        baseUrl: 'https://api.wamba.com'
+      });
+
+      async function joinMatch() {
+        const result = await sdk.matches.join({
+          matchId: 'match_abc123',
+          wager: 10.00
+        });
+        console.log('Joined:', result);
+      }
+
+      joinMatch();
+      ```
+      ```bash
+      curl -X POST https://api.wamba.com/v1/matches/join \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "matchId": "match_abc123",
+          "wager": 10.00
+        }'
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Advanced Features" icon="zap" href="https://docs.wamba.com/advanced">
+    Dive into tournaments and leaderboards.
+  </Card>
+  <Card title="Support" icon="help-circle" href="https://support.wamba.com">
+    Get help from our team.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+  Congratulations! You're ready to compete on Gamers Oasis. Track your progress in the dashboard.
+</Callout>

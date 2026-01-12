@@ -1,0 +1,158 @@
+---
+title: Changelog
+description: Stay updated with the latest releases, feature enhancements, and improvements to the Wamba platform.
+---
+
+## Recent Releases
+
+Wamba releases updates regularly to enhance your gaming experience on the Gamers Oasis platform. Check this changelog for details on new features, bug fixes, improvements, and deprecations. You can always upgrade seamlessly using our SDK or API.
+
+<Callout kind="info">
+  Subscribe to our RSS feed or join the Discord community for instant notifications on new releases.
+</Callout>
+
+<Update label="2024-10-20" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time leaderboards for all esports tournaments, showing top players dynamically.
+- Introduced spectator mode with live chat integration during matches.
+- New `/tournaments/join` API endpoint for instant match entry.
+
+## Improvements
+
+- Reduced latency by 40% in real-time match updates using WebSocket optimizations.
+- Enhanced mobile responsiveness for tournament dashboards.
+
+## Bug Fixes
+
+- Fixed synchronization issues in multiplayer lobbies.
+- Resolved token refresh errors during extended sessions.
+
+</Update>
+
+<Update label="2024-09-15" description="v1.2.0" tags={["bugfix", "security"]}>
+
+## New Features
+
+- Wallet integration for seamless prize withdrawals.
+- Custom game overlays for streamers.
+
+## Security Fixes
+
+- Patched potential XSS vulnerabilities in user profiles.
+- Strengthened JWT token validation.
+
+## Bug Fixes
+
+- Corrected prize calculation discrepancies in overtime matches.
+- Fixed dashboard crashes on low-bandwidth connections.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.1.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Live betting system for esports events.
+- Player analytics dashboard with win/loss streaks.
+
+## Breaking Changes
+
+- Updated API base URL from `/v0` to `/v1`. Migrate your integrations.
+
+## Bug Fixes
+
+- Stabilized connection drops during high-traffic tournaments.
+
+</Update>
+
+## Upgrading to the Latest Version
+
+Follow these steps to update your Wamba integration. Test in staging first.
+
+<Steps>
+  <Step title="Update SDK" icon="download">
+
+    Install the latest version across platforms.
+
+    <CodeGroup tabs="npm,yarn">
+      ````bash
+      npm install @wamba/sdk@latest
+      ````
+
+      ````bash
+      yarn add @wamba/sdk@latest
+      ````
+    </CodeGroup>
+
+  </Step>
+
+  <Step title="Migrate API Calls" icon="settings">
+
+    Update endpoints to use `https://api.wamba.com/v1`.
+
+    ````javascript
+    // Old
+    fetch('https://api.wamba.com/v0/matches');
+
+    // New
+    fetch('https://api.wamba.com/v1/matches');
+    ````
+
+  </Step>
+
+  <Step title="Test Integration" icon="play">
+
+    Run your test suite and verify real-time updates.
+
+  </Step>
+</Steps>
+
+<Callout kind="alert">
+  The `/v0` endpoints are deprecated and will be removed in v1.4.0. Migrate now to avoid disruptions.
+</Callout>
+
+## Upcoming Roadmap
+
+Discover what's next for Wamba and Gamers Oasis.
+
+<Columns cols={3}>
+  <Card title="Mobile SDK" icon="smartphone" href="/quickstart">
+    Native iOS and Android support for seamless gaming.
+  </Card>
+
+  <Card title="AI Matchmaking" icon="cpu" href="/authentication">
+    Smart opponent pairing based on skill levels.
+  </Card>
+
+  <Card title="Cross-Platform Tournaments" icon="globe" href="#">
+    Compete across PC, console, and mobile.
+  </Card>
+</Columns>
+
+<Expandable title="Detailed Migration Guide" default-open="false">
+
+If you encounter issues, review these common migration patterns.
+
+<Tabs>
+  <Tab title="JavaScript" icon="code">
+    ````javascript
+    import { WambaClient } from '@wamba/sdk';
+
+    const client = new WambaClient({ apiKey: 'YOUR_API_KEY' });
+    const matches = await client.getMatches({ limit: 10 });
+    ````
+  </Tab>
+
+  <Tab title="Python" icon="python">
+    ````python
+    from wamba import WambaClient
+
+    client = WambaClient(api_key="YOUR_API_KEY")
+    matches = client.get_matches(limit=10)
+    ````
+  </Tab>
+</Tabs>
+
+</Expandable>
